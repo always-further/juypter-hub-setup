@@ -16,6 +16,7 @@ Tested target: Ubuntu Deep Learning Base AMI with Single CUDA (Ubuntu 22.04) 202
 - `acme-companion` issues/renews Let’s Encrypt certificates automatically.
 - `jupyterhub` runs on an internal port (8000) and spawns per-user notebook containers on the `jupyterhub-net` Docker network.
 - User containers mount the host’s `/workspace` path for large models and data.
+  JupyterLab opens in `/workspace` by default for convenience.
 
 ## Prerequisites
 
@@ -159,7 +160,7 @@ Notes:
 ## Usage Notes
 
 - New users get a dedicated Docker container launched by DockerSpawner.
-- Each user container mounts the host’s `${HOST_WORKSPACE}` (default `/workspace`) at the same path inside the container.
+- Each user container mounts the host’s `${HOST_WORKSPACE}` (default `/workspace`) at the same path inside the container and JupyterLab starts there by default.
 - JupyterLab opens by default (`/lab`).
 
 ### GPU: host driver vs container CUDA
