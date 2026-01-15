@@ -2,7 +2,7 @@ FROM jupyterhub/jupyterhub:5
 
 # Install GitHub OAuth, DockerSpawner, and Docker Engine SDK
 RUN pip install --no-cache-dir \
-    oauthenticator==0.10.0 \
+    oauthenticator>=16.0.0 \
     dockerspawner==14.0.0 \
     docker>=7.1.0
 

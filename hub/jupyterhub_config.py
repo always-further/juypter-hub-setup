@@ -74,8 +74,9 @@ c.DockerSpawner.network_name = os.environ.get('DOCKER_NETWORK', 'jupyterhub-net'
 # Mount host /workspace and a per-user home volume
 host_workspace = os.environ.get('HOST_WORKSPACE', '/workspace')
 
-# Set JupyterLab to open in the shared workspace by default
-c.Spawner.default_url = f'/lab/tree{host_workspace}'
+# Set JupyterLab to open in the user's home directory
+# /workspace is available but opening it by default causes issues with JupyterLab's file browser
+c.Spawner.default_url = '/lab'
 volumes = {
     host_workspace: {'bind': host_workspace, 'mode': 'rw'},
     'jupyterhub-user-{username}': '/home/jovyan',
